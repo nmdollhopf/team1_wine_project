@@ -12,7 +12,8 @@ CREATE TABLE Red_Wine (
     "density" float NOT NULL,
     "pH" float NOT NULL,
     "sulphates" float NOT NULL,
-    "alcohol" float NOT NULL
+    "alcohol" float NOT NULL,
+    "quality" float NOT NULL
 );
 
 -- DROP TABLE White_Wine;
@@ -27,5 +28,6 @@ CREATE TABLE White_Wine (
     "density" float NOT NULL,
     "pH" float NOT NULL,
     "sulphates" float NOT NULL,
-    "alcohol" float NOT NULL
+    "alcohol" float NOT NULL,
+    "quality" float NOT NULL
 );
