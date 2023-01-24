@@ -23,4 +23,4 @@ This dataset contains twelve columns that we will take data from and analyze:
 
 -Density: The density of water content in the wine. The amount varies depending on how much alcohol and sugar is present. 
 
--pH: The pH column in this dataset is measuring the overall acidity of the wine. The pH scale 
+-pH: The pH column in this dataset is measuring the overall acidity of the wine. The pH scale starts at 0 up to 14, the lower the number the more acidic it is. Most wines are around 3-4 on the pH scale. 
