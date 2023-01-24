@@ -76,3 +76,15 @@ try on white wines only to nail down a method
    - fit binary multinomial logit
    - 81% accuracy on test  
    '7-9' category still not being guessed enough
+
+7) label encode (ordinal) data
+   - (1) encoded to 0, 1, 2, 3, 4
+   - everything same as (1)
+   - 53% accuracy on test  
+   solver must encode the targets under the hood  
+
+8) try other penalty schema (C=1.0 by default on others)
+   - using (7),
+   - solvers with C=0.001, 0.01, 0.1, 0.5, 2.0 (l2 penalty)
+   - solver with penalty='none' (no C value)
+   - mostly no changes to accuracies. not worth investigating further on (7) (perhaps on (5) with outliers removed, but unlikely)
