@@ -1,6 +1,6 @@
 # team1_wine_project
 
-##Column Descriptions
+## Column Descriptions
 
 This dataset contains twelve columns that we will take data from and analyze:
 
