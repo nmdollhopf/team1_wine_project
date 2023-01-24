@@ -1,9 +1,6 @@
 # team1_wine_project
-Final Project of Wine Classification for the UNC Data Analytics Bootcamp
 
-
-Define the columns and the data inside them. 
-
+##Column Descriptions
 
 This dataset contains twelve columns that we will take data from and analyze:
 
@@ -28,3 +25,5 @@ This dataset contains twelve columns that we will take data from and analyze:
 -Sulphates: Sulphates are an additive with antimicrobial and antioxidant properties. Can have an impact on the sulfur dioxide leves present in the wine. 
 
 -Alcohol: This column is a measurement of the alcohol content of the wine. 
+
+-Quality: This is based on sensory data, scored between 1 and 10. 
