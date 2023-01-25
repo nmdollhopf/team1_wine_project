@@ -7,6 +7,14 @@ klaus' initial works
 
 initial_unsupervised_clustering.ipynb
 
+### question  
+
+Red and white wines are different... right? We know they are, but can a computer tell the difference? How accurate is an unbiased KMeans clustering algorithm in separating red and white wines based on 11 measured chemical properties?  
+
+### rough methodology
+
+scikitlearn's KMeans class
+
 - read in data. add 'r' and 'w', for red and white, designations to each dataframe. removed quality columns since it is superfluous to the unsupervised clustering
 - combined the two dataframes into a single dataframe
 - scaled the data in 3 ways. i wasn't sure which would give the most interesting results, so i tried all of them since it was easy
@@ -16,7 +24,7 @@ initial_unsupervised_clustering.ipynb
 - fit each model
 - made the fit predictions
 - added each set of predictions to a single 'master' dataframe for easy comparisons- made confusion matrices (the value_counts() I did on [["type", "StandScalePreds", "MinMaxScalePreds", "UnscaledPreds"]] can be ignored because it wasn't quite what I wanted and isn't useful)
-- if we assume there is a physicochemical difference between red and white wines,
+- *if we assume there is a physicochemical difference between red and white wines*,
 - the unsupervised clustering on the StandardScaler data has a balanced accuracy of 98.55%.
 
 
@@ -24,7 +32,15 @@ initial_unsupervised_clustering.ipynb
 
 initial_supervised_logit.ipynb
 
+### question  
+
+Can a linear logistc regression model accurately predict the qualities of rated wines based on the measured chemical differences?  
+
+### rough methodology
+
 try on white wines only to nail down a method
+
+using scikitlearn's logisticregression class
 
 1) first attempt
    - combine '3' and '4' qualities into '3-4' and combine '8' and '9' into '8-9' since it was so unblanced.  
