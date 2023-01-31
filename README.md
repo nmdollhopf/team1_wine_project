@@ -6,7 +6,7 @@ Wine quality assessments are often based on the opinions connoisseurs which some
 
 ## Data
 
-Our data was obtained from the University of California, Irvie (UCI) Machine Learning repository. This data is also available on Kaggle.com. This data is already nicely organized in csv format, which serves as our database.
+Our data was obtained from the University of California, Irvine (UCI) Machine Learning repository. This data is also available on Kaggle.com. This data is already nicely organized in csv format, which serves as our database.
 
 https://archive.ics.uci.edu/ml/datasets/wine+quality
 
