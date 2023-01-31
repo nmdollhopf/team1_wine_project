@@ -35,6 +35,17 @@ linear regression (OLS, box-cox transformation, and lasso) to predict alcohol co
 
 ### What to try next
 
-A method that does not require the same assumptions as linear regression, e.g. support vector machines. Right now, trying to use SVM to classify good wines (quality > 6) vs bad wines (quality < 7).
+A method that does not require the same assumptions as linear regression, e.g. support vector machines. Right now, trying to use SVM to classify good wines (quality >= 7) vs bad wines (quality < 7).
 
 for a good youtube series on SVM and other ML methods, checkout StatQuest!
+
+## lost some work... but not to worry
+1. read in data
+2. compute binary outcomes (good >= 7)
+3. split into train and test
+4. compute mahalanobis distances at 0.99 level
+5. remove 'outliers' in x_train using mahalanobis distance metric
+6. scale X_train and X)test
+7. make SVC model
+8. optimize SVC parameters
+9. use SMOTE to deal with imbalanced classes.
