@@ -72,20 +72,20 @@ As noted above, there are no missing values in the data, so no observations were
 The KMeans algorithm clustered similar 11-dimensional datapoints and assigned classes to differentiate between the two clusters; the algorithm did not designate a cluster as 'white' or 'red'. If we assume the algorithm will separate the wines based on chemical differences correctly, we will be able to quantify *how* correctly the algorithm worked because we have the answers. Working on this assumption, we take prediction class 0 to be white wines and prediction class 1 to be red wines.  
 
 Below is a confusion matrix from the KMeans-predicted classes and the known types,  
-![KMeans Confusion Matrix](images/kmeans_confusion_matrix.png)  
+![KMeans Confusion Matrix](static/images/kmeans_confusion_matrix.png)  
 
 The KMeans model correctly grouped 4830 of the 4898 (98.6%) white wines and 1575 of the 1599 (98.5%) red wines, giving a balanced accuracy of 98.55%. With this accuracy, we confidently posit the red and white wines are chemically differentiable.  
 
 It's not possible to directly plot the results in 11 dimensions, but we can visualize the results in various 2-dimensional scatter plots. In the following plots, all white wines are plotted in orange and the red wines are plotted in purple. Wines predicted to be red (given prediction class 1) are show as circles and wines predicted to be white (given prediction class 0) are shown as diamonds. Therefore, false reds, white wines that were predicted to be red, are orange circles and false whites, red wines predicted to be white, are purple diamonds. The falsely-predicted wines are further outlined in black. Additionally, each image is plotted on a log scale to center and highlight the variables.  
 
 From the histograms above, we aim to use features that show separation between the two types of wine, such as the total sulfur dioxide (conversely, e.g., alcohol content is not useful for visualization). The first two scatter plots are the chloride contents and volatile acidity contents against the total sulfur dioxide measurements.  
-![Total sulfur dioxide base scatter plots](images/kmeans_scatter_1.png)  
+![Total sulfur dioxide base scatter plots](static/images/kmeans_scatter_1.png)  
 
 The next set of scatter plots feature the chloride contents and sulphates content against the fixed acidity measurements.  
-![Fixed acidity base scatter plots](images/kmeans_scatter_2.png)  
+![Fixed acidity base scatter plots](static/images/kmeans_scatter_2.png)  
 
 The last set of scatter plots highlighted here feature the pH levels and residual sugar contents against the chlorides measurements.  
-![Chlorides base scatter plots](images/kmeans_scatter_3.png)  
+![Chlorides base scatter plots](static/images/kmeans_scatter_3.png)  
 
 From the above scatter plots and histograms, we can see how outliers within a wine type can lead to a misclassification. With that in mind, however, the aim was not to attempt a perfectly accurate classification schema. Rather, we suggest embracing the occasional avant-garde flavor profile while enjoying the myriad of vinho verde wines available.
 
