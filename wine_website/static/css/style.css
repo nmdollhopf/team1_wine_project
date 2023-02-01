@@ -1,0 +1,11 @@
+body {
+
+    color: #961111;
+  }
+  .jumbotron {
+    background-image: url("../images/wine.jpg");
+    background-size: 100%;
+    background-size: contain;
+    #background-repeat: no-repeat;
+    text-align: center;
+  } 
