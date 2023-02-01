@@ -1,6 +1,7 @@
 body {
 
-    color: #961111;
+    color: #000;
+    
   }
   .jumbotron {
     background-image: url("../images/wine.jpg");
@@ -8,4 +9,5 @@ body {
     background-size: contain;
     #background-repeat: no-repeat;
     text-align: center;
+    
   } 

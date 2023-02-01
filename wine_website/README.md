@@ -6,36 +6,36 @@
 
 -Distributions of physiochemical properties of red wine
 
--Distributions of physiochemical propertoes of white winbe
+-Distributions of physiochemical propertoes of white wine
 
 ### Supervised learning model (prediction of quality of wine  based on physiochemical properties) primary analysis
 
 #### logit model; Quality binned into (5) outcomes 3-4,5,6,7,8-9 (note red wine does not have 9)
 
-    -confusion matrix for red wine
-    -confusion matrix for white wine
+    -confusion matrix for red wine (image pending)
+    -confusion matrix for white wine (image pending)
 
 #### SVM model; Quality binned into (3) outcomes 3-4, 5-7, 8-9 (note red wine does not have 9)
 
-    -confusion matrix for red wine
-    -confusion matrix for white wine
+    -confusion matrix for red wine (image pending)
+    -confusion matrix for white wine (image pending)
 
 ### Optimized SVM model; Quality binned into (2-binary) outcomes 3-5, 6-9 (note red wine does not have 9)- confirm split
 
-    -confusion matrix for red wine
-    -confusion matrix for white wine
+    -confusion matrix for red wine (pending)
+    -confusion matrix for white wine (pending)
 
 ### Unsupervised learning model-K-means (prediction of red or white wine based on physiochemical properties) secondary analysis
 
 #### Selected scatterplots of physiochemical properites showing clear separation of red vs white wines
 
-    -plot #1
-    -plot #2
-    -plot #3....
+    -scatter plot #1 
+    -scatter plot #2
+    -scatter plot #3
 
 #### Accuracy Scores
 
-    -plot #4
+    -unsupervised Kmeans confusion matrix
 
 
 
