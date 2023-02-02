@@ -10,7 +10,7 @@ To explore the capabilities of various machine learning algorithms in the space 
 As our final project, we try our hand at utilizing the vinho verde wine data. The first question we ask is if we can use the 11 physico-chemical measurements as model features to accurately predict the qualities of each wine. A second question we ask is whether a naive physico-chemical clustering can separate the red and white wines.
 
 
-## Provided Data
+## Vinho Verde Data
 Each column provided in the datasets is described below. From the work of Cortez *et al.* (2009), the data is already clean and there are no missing values. 
 
 #### Fixed Acidity  
@@ -63,18 +63,18 @@ Quite readily, red and white wines are easily distinguishable from just the colo
 
 The idea of naive clustering requires using only the physico-chemical measurements of the data and ignoring the quality column. To that end, we require an unsupervised learning algorithm; that is, we do not provide any testing data with the correct answers.  
 
-The tool of choice is scikit-learn's K-means algorithm (the KMeans class); since we want to attempt splitting into red and white wines, we will use 2 clusters. With 11 physico-chemical columns, the KMeans algorithm will work in 11-dimensional space and separate the two clusters based on 11th-dimension Euclidean distance. The algorithm is iterative until reaching a stopping point of, roughly, when the average distance from each point to the cluster centroid of each class are equal.  
+The tool of choice is `scikit-learn`'s K-means algorithm (the `KMeans` class); since we want to attempt splitting into red and white wines, we will use 2 clusters. With 11 physico-chemical columns, the K-means algorithm will work in 11-dimensional space and separate the two clusters based on 11th-dimension Euclidean distance. The algorithm is iterative until reaching a stopping point of, roughly, when the average distance from each point to the cluster centroid of each class are equal.  
 
-As noted above, there are no missing values in the data, so no observations were removed. The quality column was dropped. Each dataset was encoded by the type of wine (1 for red, 0 for white) before being combined into a single pandas DataFrame. The type was split off for the K-means algorithm and was only kept as an answer key. The physico-chemical measurements were scaled using scikit-learn's StandardScaler class, which calculates the z-score for each observation column-wise. The KMeans class was instantiated with default options, except for the number of clusters, which was set to 2. The KMeans was fit to the data and each observation was given a predicted class.  
+As noted above, there are no missing values in the data, so no observations were removed. The quality column was dropped. Each dataset was encoded by the type of wine (1 for red, 0 for white) before being combined into a single `pandas` DataFrame. The type was split off before using the K-means algorithm and was only kept as an answer key. The physico-chemical measurements were scaled using `scikit-learn`'s `StandardScaler` class, which calculates the z-score for each observation column-wise. The `KMeans` class was instantiated with default options, except for the number of clusters, which was set to 2. The K-means model was fit to the data and each observation was given a predicted class.  
 
 ### Result  
 
-The KMeans algorithm clustered similar 11-dimensional datapoints and assigned classes to differentiate between the two clusters; the algorithm did not designate a cluster as 'white' or 'red'. If we assume the algorithm will separate the wines based on chemical differences correctly, we will be able to quantify *how* correctly the algorithm worked because we have the answers. Working on this assumption, we take prediction class 0 to be white wines and prediction class 1 to be red wines.  
+The K-means algorithm clustered similar 11-dimensional datapoints and assigned classes to differentiate between the two clusters; the algorithm did not designate a cluster as 'white' or 'red'. If we assume the algorithm will separate the wines based on chemical differences correctly, we will be able to quantify *how* correctly the algorithm worked because we have the answers. Working on this assumption, we take prediction class 0 to be white wines and prediction class 1 to be red wines.  
 
-Below is a confusion matrix from the KMeans-predicted classes and the known types,  
+Below is a confusion matrix from the K-means-predicted classes and the known types,  
 ![KMeans Confusion Matrix](static/images/kmeans_confusion_matrix.png)  
 
-The KMeans model correctly grouped 4830 of the 4898 (98.6%) white wines and 1575 of the 1599 (98.5%) red wines, giving a balanced accuracy of 98.55%. With this accuracy, we confidently posit the red and white wines are chemically differentiable.  
+The K-means model correctly grouped 4830 of the 4898 (98.6%) white wines and 1575 of the 1599 (98.5%) red wines, giving a balanced accuracy of 98.55%. With this accuracy, we confidently posit the red and white wines are chemically differentiable.  
 
 It's not possible to directly plot the results in 11 dimensions, but we can visualize the results in various 2-dimensional scatter plots. In the following plots, all white wines are plotted in orange and the red wines are plotted in purple. Wines predicted to be red (given prediction class 1) are show as circles and wines predicted to be white (given prediction class 0) are shown as diamonds. Therefore, false reds, white wines that were predicted to be red, are orange circles and false whites, red wines predicted to be white, are purple diamonds. The falsely-predicted wines are further outlined in black. Additionally, each image is plotted on a log scale to center and highlight the variables.  
 
@@ -102,3 +102,4 @@ CVRVV red requirements: https://portal.vinhoverde.pt/pt/produtos-regras-de-confo
 CVRVV white requirements: https://portal.vinhoverde.pt/pt/produtos-regras-de-conformidade/VVB  
 Various acids in wine: https://en.wikipedia.org/wiki/Acids_in_wine  
 Scikit-learn: https://scikit-learn.org/stable/index.html  
+Pandas: https://pandas.pydata.org/  
