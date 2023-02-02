@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality</title>
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="static/css/style.css">    
+</head>
+<body class="bg-light">
+    <div class="wrapper">
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <a class="navbar-brand" href="index wine.html">Final Project of Wine Classification for the UNC Data Analytics Bootcamp</a>
+        </nav>
+    </div>
+    <div class="jumbotron">
+        <h1 class="display-4">Predicting Wine Quality</h1>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <h3>Wine physicochemical  properties Info</h3>
+          <p style="color:rgb(187, 19, 33);font-size:20px;">
+            Fixed Acidity-
+            The measure of tartaric acid in the wines, measured in grams per Liter (g/L, reported at the CVRVV as grams per cubic decimeter). Tartaric acid contributes both to the chemical stability of the wine and flavor profile. For red and white wines, the CVRVV sets a minimum of 4.5 g/L.
+          </p>
+
+            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            Volatile Acidity-
+            The measure of acetic acid in the wines, measured in g/L. Acetic acid is responsible for how much of a vinegar taste exists in the wine. The CVRVV sets a maximum of 1.20 g/L for red wines and 1.08 g/L for white wines.
+          </p>
+
+            <p style="color:rgb(187, 19, 33);font-size:20px;">  
+            Citric Acid-
+            The measure of citric acid in the wines, measured in g/L. While not naturally occuring in grapes in large amounts, citric acid is the familiar taste of citrus fruits (e.g. oranges) and allowed as an additive for removal of iron and copper. A maximum of 1.00 g/L for both red and white wines is set by the CVRVV.
+          </p>
+            <p style="color:rgb(187, 19, 33);font-size:20px;"> 
+            Residual Sugar-
+            A measure of the amount of sugar left over after the fermentation process, measured in g/L. Typically a mix primarily of glucose and fructose, but the specific lab test conducted by the CVRVV lab is unknown. There are no minimum or maximuml limits set by the CVRVV.
+          </p> 
+
+            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            Chlorides-
+            The measure of sodium chloride, salt, in the wine, measured in g/L. The maximum limits set by the CVRVV are 1 g/L for both red and white wines.
+          </p>
+
+            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            Free and Total Sulfur Dioxide-
+            Measures of the amount of sulfur dioxide in the wine, measured in milligrams per Liter (mg/L, 1000 mg/L is 1 g/L). Used as a chemical stabilizer, free sulfur dioxide refers to sulfur dioxide existing in its sole molecular form whereas total sulfur dioxide further includes sulfur dioxide that has been chemically bound to other molecules. The maximimum limits set by the CVRVV vary depending on the amount of sugar in the wine.
+          </p>
+
+            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            Density-
+            The density of the wine, measured in grams per milliliter (g/mL). Plain water has a density of about 1 g/mL, and alcohol (ethanol) has a density just under 0.8 g/mL.
+          </p>
+
+            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            pH-
+            The pH of the wine, measured on the unitless pH scale. Nominally ranging from 0-14, a neutral pH is about 7, such as water, and acidic solutions are less than 7.
+          </p> 
+
+            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            Sulphates-
+            A measure of potassium sulphates in the wine (potentially potassium metabisulphite) in g/L. Primarily used as chemical stabilizers, the CVRVV sets upper limits of 2 g/L for red and white wines.
+          </p> 
+
+            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            Alcohol-
+            The measure of alcohol in the wine, expressed as a percentage of volume. For red and white wines, the CVRVV sets a minimum total alcohol of 8% and maximum total alcohol of 14%.
+          </p>
+
+            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            Quality-
+            Blind taste tests were performed by professional wine makers and tasters. The rating was a scale from 0-10, with 0 being "very bad" and 10 being "excellent". Each wine was taste-tested by at least 3 people and the median of the scores was taken as the quality.
+          </p> 
+            
+          </div>
+          <div class="col-md-4">
+            
+            <p style="color:blue;font-size:24px;">
+            Distributions of physicochemical  properties of the Red variants of the Portuguese "Vinho Verde" wine
+              <img src="static/images/Red_wine_dist.jpg" alt="Italian Trulli">
+            </p>
+            <p style="color:blue;font-size:24px;">
+            Distributions of physicochemical properties of the White variants of the Portuguese "Vinho Verde" wine 
+            <img src="static/images/White_wine_dist.jpg" alt="Italian Trulli">
+          </p>
+          <p style="color:blue;font-size:24px;">
+           Scatter plot #1
+            <img src="static/images/kmeans_scatter_1.png" alt="Italian Trulli">
+          </p>
+          <p style="color:blue;font-size:24px;">
+           Scatter plot #2
+            <img src="static/images/kmeans_scatter_2.png" alt="Italian Trulli">
+          </p>
+          <p style="color:blue;font-size:24px;">
+           Scatter plot #3
+            <img src="static/images/kmeans_scatter_3.png" alt="Italian Trulli">
+          </p>
+          <p style="color:blue;font-size:24px;">
+           Unsupervised Kmeans confusion matrix
+            <img src="static/images/kmeans_confusion_matrix.png" alt="Italian Trulli">
+          </p>
+          <p style="color:blue;font-size:24px;">
+            Supervised logit confusion matrix Red Wine
+             <img src="static/images/logit_reds_confusion_matrix.png" alt="Italian Trulli">
+           </p>
+           <p style="color:blue;font-size:24px;">
+            Supervised logit confusion matrix White Wine
+             <img src="static/images/logit_whites_confusion_matrix.png" alt="Italian Trulli">
+           </p>
+           <p style="color:blue;font-size:24px;">
+            Supervised SVC confusion matrix Red Wine
+             <img src="static/images/svm_reds_confusion_matrix.png" alt="Italian Trulli">
+           </p>
+           <p style="color:blue;font-size:24px;">
+            Supervised SVC confusion matrix White Wine
+             <img src="static/images/svm_whites_confusion_matrix.png" alt="Italian Trulli">
+           </p>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <form  class="bg-dark">
+                <p>END</p>
+                <ul class="list-group bg-dark">
+                  
+              </form>       
+        </div>
+        <div class="col-md-9">            
+            
+          </div>
+        </div>    
+      </div>
+      
+</body>
+</html>
