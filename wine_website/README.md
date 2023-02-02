@@ -4,13 +4,13 @@
 
 ### Distributions of data set (raw data or infamily data)
 
-   -Distributions of physiochemical properties of red wine
+   -Distributions of physicochemical properties of red wine
 
-   -Distributions of physiochemical propertoes of white wine
+   -Distributions of physicochemical properties of white wine
 
-### Unsupervised learning model-K-means (prediction of red or white wine based on physiochemical properties) secondary analysis
+### Unsupervised learning model-K-means (prediction of red or white wine based on physicochemical properties) secondary analysis
 
-#### Selected scatterplots of physiochemical properites showing clear separation of red vs white wines
+#### Selected scatterplots of physicochemical properites showing clear separation of red vs white wines
 
     -scatter plot #1 
     -scatter plot #2
@@ -20,7 +20,7 @@
 
     -unsupervised Kmeans confusion matrix
 
-### Supervised learning model (prediction of quality of wine  based on physiochemical properties) primary analysis
+### Supervised learning model (prediction of quality of wine  based on physicochemical properties) primary analysis
 
 #### logit model; Quality binned into (5) outcomes 3-4,5,6,7,8-9 (note red wine does not have 9)
 
@@ -28,7 +28,7 @@
     -confusion matrix for white wine 
     
 
-#### SVC model; Quality binned into (3) outcomes 3-4, 5-7, 8-9 (note red wine does not have 9)
+#### SVC model; Quality binned into (3) outcomes 3-4, 5-7, 8-9 (note red wine does not have 9) REMOVE
 
     -confusion matrix for red wine
     -confusion matrix for white wine 
