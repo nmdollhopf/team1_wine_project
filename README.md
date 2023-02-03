@@ -27,25 +27,12 @@ This dataset contains 1599 red wine observations and 4898 whinte wine observatio
    Output variable (based on sensory data): 
    12 - quality (score between 0 and 10)
 
-## Catherine's work so far
+### What did not work: Linear Regression
 
-### What did not work
+linear regression (OLS, box-cox transformation, and lasso) to predict wine quality (treated as a continuous variable) or alcohol content. Most predictors are not normally distributed and could not find a good transformation. There is also a problem with multicollinearity among the predictors. LASSO dropped out all predictors, indicating none are particularly good at prediciting alcohol content (using elastic net, density is the best predictor which makes sense as ethanol is less than water)
 
-linear regression (OLS, box-cox transformation, and lasso) to predict alcohol content. Most predictors are not normally distributed and could not find a good transformation. There is also a problem with multicollinearity among the predictors. LASSO dropped out all predictors, indicating none are particularly good at prediciting alcohol content (using elastic net, density is the best predictor which makes sense as ethanol is less than water)
+### What did work: Support Vector Classification
 
-### What to try next
+Linear regression did not work well due to a lack of normality and the presense of multicollinearity among the predictors. Thus, we decided to move forward with a Support Vector Classification (SVC) model that would be less sensitive to these attributes of the data.
 
-A method that does not require the same assumptions as linear regression, e.g. support vector machines. Right now, trying to use SVM to classify good wines (quality >= 7) vs bad wines (quality < 7).
-
-for a good youtube series on SVM and other ML methods, checkout StatQuest!
-
-## lost some work... but not to worry
-1. read in data
-2. compute binary outcomes (good >= 7)
-3. split into train and test
-4. compute mahalanobis distances at 0.99 level
-5. remove 'outliers' in x_train using mahalanobis distance metric
-6. scale X_train and X)test
-7. make SVC model
-8. optimize SVC parameters
-9. use SMOTE to deal with imbalanced classes.
+Ultimately, we decided to convert the experimental variable, quality, into a binary outcome. Wines with a quality score >= 7 were classified as 'good'. The SVC model was trained on 70% of the data that had been scaled using sklearn's PowerTransformer scaler with the Yeo-Johnson method. This model consistently predicts test data with greater than 98% balanced accuracy, precision, and recall despite imbalance among the two classes. 
