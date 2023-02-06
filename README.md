@@ -3,9 +3,9 @@ Final Project of Wine Classification for the Aug. '22 - Feb. '23 UNC Data Analyt
 
 ## Introduction
 
-*Vinho Verde*  is a grouping of wines from the northern *Minho* region of Portugal. The wine grouping and region are legally defined and further enforced by the Comissão de Viticultura da Região dos Vinhos Verdes (CVRVV, *Vinho Verde Region Viticulture Commission*) via setting various standards each wine should meet. One set of standards includes the chemical composition of the wines designated as Vinho Verde, for which the CVRVV offers testing and accreditation. The CVRVV also orchestrates sensory (taste) tests for each wine.  
+*Vinho Verde*  is a grouping of wines from the northern *Minho* region of Portugal. Though literally translated as "green wine," the name means "young wine" because the wines do not undergo a lengthy aging process, usually being released within six months. The wine grouping and region are legally defined and further enforced by the Comissão de Viticultura da Região dos Vinhos Verdes (CVRVV, *Vinho Verde Region Viticulture Commission*) via setting various standards each wine should meet. One set of standards includes the chemical composition of the wines designated as Vinho Verde, for which the CVRVV offers testing and accreditation. The CVRVV also orchestrates sensory (taste) tests for each wine.  
 
-To explore the capabilities of various machine learning algorithms in the space of wine making, P. Cortez *et al.* (2009) compiled [and utilized] a collection of 4,898 white and 1,599 red vinho verde wines with "physico-chemical" measurements and quality ratings from the CVRVV. Available publically, these collections provide an introduction to machine learning and classification.  
+To explore the capabilities of various machine learning algorithms in the space of wine making, P. Cortez *et al.* (2009) compiled [and utilized] a collection of 4,898 white and 1,599 red vinho verde wines with "physico-chemical" measurements and quality ratings from the CVRVV. Published and available publically, these collections provide an introduction to machine learning and classification.  
 
 As our final project, we try our hand at utilizing the vinho verde wine data. The first question we ask is if we can use the 11 physico-chemical measurements as model features to accurately predict the qualities of each wine. A second, lighter question we ask is whether a naive physico-chemical clustering can separate the red and white wines.  
 
@@ -126,16 +126,26 @@ Flavor profiles of wine are complex and multi-faceted. Aging a wine can let unde
 Because red and white wines have very different flavor profiles, each is rated solely amongst others of their type. For example, a given amount of sweetness could be a negative for a red wine but a positive for a white wine. Therefore, in asking our question, we keep the red and white wines separate and run models for each.  
 
 ### Model 1 
-Linear Regression 
+The first idea is to start simple; with all numerical data, a linear regression presents itself as well-suited for such.
 
 #### Method  
+In a linear regression, weights are applied linearly to features to predict target values. The `R` built-in `lm()` function was used to perform a multiple linear regression with an ordinary least squares fitting scheme. The regression was primarily attempted using all physico-chemical features to predict quality; further regressions were also applied using subsets of the features. All quality ratings were used as outputs.  
+
+The regression was performed on both unscaled and scaled data, the latter using a Box-Cox power transformation. A Box-Cox transformation uses a scaling factor, `lambda`, applied in a power law (or logarithm) to each data point to normalize the features to a mean of 0 and standard deviation of 1. The data was not split into separate training and testing subsets.  
 
 #### Results
 
+The linear regressions did not perform well, regardless of which features were utilized as predictors or scalings were applied. As an example, a residuals plot (a residual for a data point is the *known value - predicted value*) for a full-featured, unscaled regression is shown below,  
+![OLS lm residuals plot](static/images/linearDiganosticPlots.jpg)  
+
+Data transformations attempted to normalize the data but showed little success. Additional errors may have been introduced from multicollinearity in the features. Overall, linear regression models performed poorly, reflected by predictions of decimal quality ratings.  
+
 ### Model 2 
-The rating scale used by the CVRVV taste testers are whole numbers, no wines were rated as a 6.5, for example; as such, a logical next step is to treat the qualities as categorical, rather than continuous. To this end, we will use logistic regression to predict quality scores.  
+The rating scale used by the CVRVV taste testers are whole numbers, no wines were rated as a 6.5, for example; as such, a logical next step is to treat the qualities as categorical, rather than continuous. To this end, we will use logistic regression to predict quality scores.   
 
 #### Method
+
+As a note, all further analysis is performed in `python`.  
 
 Before the next step, we must recognize our outcome quality classes are heavily imbalanced against lower and higher ratings. For the white wines, there are 7 quality classes, and, for the red wines, there are 6 quality classes to predict. In a first attempt to balance the classes, we will combine the `3` & `4` classes and the `8` & `9`. Though the latter combination has no effect for the red wines (no `9` ratings were given), we make the number of outcome classes 5 for both types of wine for pedagogy.   
 Following this binning, the number of ratings for each type is,  
@@ -176,7 +186,7 @@ With this binning, the number of ratings for each type is increasingly more bala
 | White | 1,640 | 2,198 | 1,060 |
 | Red | 744 | 638 | 217 |  
 
-Support Vector Classification (SVC) is a subset of SVMs and, as noted, work in high-dimensional space to separate outcome classes with support vectors. The support vectors then feed into decision functions that predict outcome classes based on probabilities for each class, much like the logistic regression method. Prior to the probabilities step, and unlike the logistic regression, we will utilize a non-linear formulation (the kernel) for setting the support vectors. For our purposes, we will use an exponential formulation called the Radial Basis Function (RBF).  
+Support Vector Classification (SVC) is a subset of SVMs and, as noted, works in high-dimensional space to separate outcome classes with support vectors. The support vectors then feed into decision functions that predict outcome classes based on probabilities for each class, much like the logistic regression method. Prior to the probabilities step, and unlike the logistic regression, we will utilize a non-linear formulation (the kernel) for setting the support vectors. For our purposes, we will use an exponential formulation called the Radial Basis Function (RBF).  
 
 As before, each dataset is split into training and testing data at 70% and 30% of the data, respectively, via `scikit-learn`'s `train_test_split` method. When applying the split, the data was stratified by outcome class. A random state seed was utilized for consistency.  
 
@@ -231,7 +241,7 @@ As noted above, there are no missing values in the data, so no observations were
 
 ### Result  
 
-The K-means algorithm clustered similar 11-dimensional datapoints and assigned classes to differentiate between the two clusters; the algorithm did not designate a cluster as 'white' or 'red'. If we assume the algorithm will separate the wines based on chemical differences correctly, we will be able to quantify *how* correctly the algorithm worked because we have the answers. Working on this assumption, we take prediction class 0 to be white wines and prediction class 1 to be red wines.  
+The K-means algorithm clustered similar 11-dimensional data points and assigned classes to differentiate between the two clusters; the algorithm did not designate a cluster as 'white' or 'red'. If we assume the algorithm will separate the wines based on chemical differences correctly, we will be able to quantify *how* correctly the algorithm worked because we have the answers. Working on this assumption, we take prediction class 0 to be white wines and prediction class 1 to be red wines.  
 
 Below is a confusion matrix from the K-means-predicted classes and the known types,  
 ![KMeans Confusion Matrix](static/images/kmeans_confusion_matrix.png)  
