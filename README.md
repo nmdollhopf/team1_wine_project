@@ -171,7 +171,7 @@ Where linear and logistic regressions apply linear weights to features, Support 
 Foremost, we again look to the issue of the imbalanced quality classes. Again, we choose the route of binning the outer classes with the next-inner classes, giving us 3 outcome classes for this set of models. The `3`, `4`, and `5` classes are binned together into a `3-5` class, and the `7`, `8`, and `9` classes are binned together into a `7-9` class (`7-8` for red wines).  
 
 With this binning, the number of ratings for each type is increasingly more balanced,  
-| Class | 3 - 5 | 6 | 7-9 |
+| Class | 3-5 | 6 | 7-9 |
 | ---- | :---: | :---: | :---: | 
 | White | 1,640 | 2,198 | 1,060 |
 | Red | 744 | 638 | 217 |  
@@ -199,6 +199,19 @@ Once again, though, we notice the imbalanced classes (i.e. `7-9` qualities) are 
 
 ### Model 4
 Binary SVC
+
+#### Method
+Move to binary outcome, bin `3-6`, `7-9`. 
+
+With the binary outcome,  
+| Class | 3-6 | 7-9 |
+| ---- | :---: | :---: | 
+| White | 3,838 | 1,060 |
+| Red | 1,382 | 217 |  
+
+Move scaling to scikit-learn's PowerTransform, Yeo-Johnson.
+
+#### Result
 
 
 
