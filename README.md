@@ -139,8 +139,8 @@ The rating scale used by the CVRVV taste testers are whole numbers, no wines wer
 
 Before the next step, we must recognize our outcome quality classes are heavily imbalanced against lower and higher ratings. For the white wines, there are 7 quality classes, and, for the red wines, there are 6 quality classes to predict. In a first attempt to balance the classes, we will combine the `3` & `4` classes and the `8` & `9`. Though the latter combination has no effect for the red wines (no `9` ratings were given), we make the number of outcome classes 5 for both types of wine for pedagogy.   
 Following this binning, the number of ratings for each type is,  
-| Class | 3 - 4 | 5 | 6 | 7 | 8-9 |
-| ---- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Class | 3-4 | 5 | 6 | 7 | 8-9 |
+| ---- | :---: | :---: | :---: | :---: | :---: | 
 | White | 183 | 1,457 | 2,198 | 880 | 180 |
 | Red | 63 | 681 | 638 | 199 | 18 |  
 
