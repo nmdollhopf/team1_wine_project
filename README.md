@@ -150,7 +150,7 @@ Each dataset (red and white wine) is split into training and testing data at 70%
 
 We scale the data using `scikit-learn`'s `StandardScaler` class, which calculates the z-score for each observation column-wise (the mean of each feature becomes 0 and the standard deviation 1). The scaler was fit to the training data and applied to the training and testing data.  
 
-For the classification, `scikit-learn`'s `LogisticRegression` class was utilized. The models were instantiated with the parameter `multi_class=multinomial` to reflect the multiclass outcome and otherwise default parameters: namely, the solver method was `lbfgs` (the Broyden–Fletcher–Goldfarb–Shanno algorithm), the penalty schema was `l_2`, and the regularization strength, `C`, was 1.0. A random state seed was utilized as well for consistency. The models (recall, one for each dataste of wines) were fit and trained on the training data and predictions were made using the testing data.  
+For the classification, `scikit-learn`'s `LogisticRegression` class was utilized. The models were instantiated with the parameter `multi_class=multinomial` to reflect the multiclass outcome and otherwise default parameters: namely, the solver method was `lbfgs` (the Broyden–Fletcher–Goldfarb–Shanno algorithm), the penalty schema was `l_2`, and the regularization strength, `C`, was 1.0. A random state seed was utilized as well for consistency. The models (recall, one for each dataset of wines) were fit and trained on the training data and predictions were made using the testing data.  
 
 #### Result 
 
@@ -256,3 +256,6 @@ Pandas: https://pandas.pydata.org/
 Numpy: https://numpy.org/  
 Matplotlib: https://matplotlib.org/  
 Seaborn: https://seaborn.pydata.org/  
+Bootstrap: https://getbootstrap.com/  
+R: https://www.R-project.org/  
+Tidyverse: https://www.tidyverse.org/ 
