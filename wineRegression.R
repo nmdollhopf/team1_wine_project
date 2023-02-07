@@ -10,24 +10,6 @@ library(glmnet) # RIDGE regression / LASSO regression / Elastic Net regression
 data <- read.csv('winequality-red.csv', sep = ';')
 white <- read.csv('winequality-white.csv', sep = ';')
 
-# generate density plots to visualize relationship among predictors
-long_data <- data %>%
-  pivot_longer(colnames(data)) %>%
-  as.data.frame()
-long_white <- white %>%
-  pivot_longer(colnames(white)) %>%
-  as.data.frame()
-
-ggplot()+
-  geom_histogram(long_data, aes(x=value))+
-  geom_histogram(long_white, aes(x=value))+
-  facet_wrap(~name, scales = 'free') +
-  theme_minimal()+
-  theme(panel.grid = element_blank())
-
-ggsave('predictor_densities.png')
-
-
 # full OLS model, predict quality
 model <-lm(data = data, quality ~ .)
 summary(model)
