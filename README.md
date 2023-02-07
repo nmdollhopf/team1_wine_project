@@ -1,19 +1,19 @@
 # Vinho Verde Wine Classification  
 Final Project of Wine Classification for the Aug. '22 - Feb. '23 UNC Data Analytics Bootcamp by Darius Chancy, Niklaus Dollhopf, Ken Gaynor, Catherine Smith, & Browning Wipper.
 
-https://nmdollhopf.github.io/team1_wine_project/
+Snippets of this work available as a [Github Pages](https://nmdollhopf.github.io/team1_wine_project/).  
 
 ## Introduction
 
 *Vinho Verde*  is a grouping of wines from the northern *Minho* region of Portugal. Though literally translated as "green wine," the name means "young wine" because the wines do not undergo a lengthy aging process, usually being released within six months. The wine grouping and region are legally defined and further enforced by the Comissão de Viticultura da Região dos Vinhos Verdes (CVRVV, *Vinho Verde Region Viticulture Commission*) via setting various standards each wine should meet. One set of standards includes the chemical composition of the wines designated as Vinho Verde, for which the CVRVV offers testing and accreditation. The CVRVV also orchestrates sensory (taste) tests for each wine.  
 
-To explore the capabilities of various machine learning algorithms in the space of wine making, P. Cortez *et al.* (2009) compiled [and utilized] a collection of 4,898 white and 1,599 red vinho verde wines with "physico-chemical" measurements and quality ratings from the CVRVV. Published and available publically, these collections provide an introduction to machine learning and classification.  
+To explore the capabilities of various machine learning algorithms in the space of wine making, P. Cortez *et al.* (2009) compiled [and utilized] a collection of 4,898 white and 1,599 red vinho verde wines with "physico-chemical" measurements and quality ratings from the CVRVV. Published and available publically, these collections provide an introduction to machine learning and classification.  (Available here as [winequality-red.csv](winequality-red.csv) and [winequality-white.csv](winequality-white.csv), with [winequality_info.txt](winequality_info.txt) containing general information.)  
 
 As our final project, we try our hand at utilizing the vinho verde wine data. The first question we ask is if we can use the 11 physico-chemical measurements as model features to accurately predict the qualities of each wine. A second, lighter question we ask is whether a naive physico-chemical clustering can separate the red and white wines.  
 
 
 ## Vinho Verde Data
-Each column provided in the datasets is defined below, along with statistical descriptions for each color of wine. From the work of Cortez *et al.* (2009), the data is already clean and there are no missing values. 
+Each column provided in the datasets is defined below, along with statistical descriptions for each color of wine. From the work of Cortez *et al.* (2009), the data is already clean and there are no missing values.  
 
 #### Fixed Acidity  
 The measure of tartaric acid in the wines, measured in grams per Liter (g/L, reported at the CVRVV as grams per cubic decimeter). Tartaric acid contributes both to the chemical stability of the wine and flavor profile. For red and white wines, the CVRVV sets a minimum of 4.5 g/L.  
@@ -40,7 +40,7 @@ The measure of citric acid in the wines, measured in g/L. While not naturally oc
 | Red | 0.27 | 0.26 | 0.19 | 0.33 |  
 
 #### Residual Sugar
-A measure of the amount of sugar left over after the fermentation process, measured in g/L. Typically a mix primarily of glucose and fructose, but the specific lab test conducted by the CVRVV lab is unknown. There are no minimum or maximuml limits set by the CVRVV.  
+A measure of the amount of sugar left over after the fermentation process, measured in g/L. Typically a mix primarily of glucose and fructose, but the specific lab test conducted by the CVRVV lab is unknown. There are no minimum or maximum limits set by the CVRVV.  
 
 | Type | Average | Median | St. Dev. | IQR |
 | ---- | ------- | ------ | -------- | --- |
@@ -71,7 +71,7 @@ Measures of the amount of sulfur dioxide in the wine, measured in milligrams per
 | Red | 46.5 | 38.0 | 32.9 | 40.0 |  
 
 #### Density  
-The density of the wine, measured in grams per milliliter (g/mL). Plain water has a density of about 1 g/mL, and alcohol (ethanol) has a density just under 0.8 g/mL.  
+The density of the wine, measured in grams per milliliter (g/mL, 1 g/mL is 1000 g/L). Plain water has a density of about 1 g/mL, and alcohol (ethanol) has a density just under 0.8 g/mL.  
 
 | Type | Average | Median | St. Dev. | IQR |
 | ---- | ------- | ------ | -------- | --- |
@@ -118,6 +118,8 @@ The number of wines given a rating are shown below,
 #### Histogram Plots of 1,599 Red Wines
 ![Red wines histogram](static/images/Red_wine_dist.jpg)  
 
+(Plots created with [Wine_exploratory_reduced.ipynb](Wine_exploratory_reduced.ipynb))  
+
 
 <br>
 
@@ -128,12 +130,12 @@ Flavor profiles of wine are complex and multi-faceted. Aging a wine can let unde
 Because red and white wines have very different flavor profiles, each is rated solely amongst others of their type. For example, a given amount of sweetness could be a negative for a red wine but a positive for a white wine. Therefore, in asking our question, we keep the red and white wines separate and run models for each.  
 
 ### Model 1 
-The first idea is to start simple; with all numerical data, a linear regression presents itself as well-suited for such.
+The first idea is to start simple. With all numerical data, a linear regression presents itself as well-suited for such. (Code is available in [wineRegression.R](wineRegression.R).)
 
 #### Method  
 In a linear regression, weights are applied linearly to features to predict target values. The `R` built-in `lm()` function was used to perform a multiple linear regression with an ordinary least squares fitting scheme. The regression was primarily attempted using all physico-chemical features to predict quality; further regressions were also applied using subsets of the features. All quality ratings were used as outputs.  
 
-The regression was performed on both unscaled and scaled data, the latter using a Box-Cox power transformation. A Box-Cox transformation uses a scaling factor, `lambda`, applied in a power law (or logarithm) to each data point to normalize the features to a mean of 0 and standard deviation of 1. The data was not split into separate training and testing subsets.  
+The regression was performed on both unscaled and scaled data, the latter using a Box-Cox power transformation. A Box-Cox transformation uses a scaling factor, `lambda`, applied in a power law (or logarithm for some values) to each data point to normalize the features to a mean of 0 and standard deviation of 1. The data was not split into separate training and testing subsets.  
 
 #### Results
 
@@ -143,24 +145,22 @@ The linear regressions did not perform well, regardless of which features were u
 Data transformations attempted to normalize the data but showed little success. Additional errors may have been introduced from multicollinearity in the features. Overall, linear regression models performed poorly, reflected by predictions of decimal quality ratings.  
 
 ### Model 2 
-The rating scale used by the CVRVV taste testers are whole numbers, no wines were rated as a 6.5, for example; as such, a logical next step is to treat the qualities as categorical, rather than continuous. To this end, we will use logistic regression to predict quality scores.   
+The rating scale used by the CVRVV taste testers are whole numbers, no wines were rated as a 6.5, for example; as such, a logical next step is to treat the qualities as categorical, rather than continuous. To this end, we will use logistic regression to predict quality scores. (Code is available in [final_multiclass_supervised_learning.ipynb](final_multiclass_supervised_learning.ipynb).)  
 
-#### Method
+#### Method  
 
-As a note, all further analysis is performed in `python`.  
+Logistic regression methods effectively use linear weights applied to features in a logistic (sigmoid) function to predict outcome probabilities. In the multinomial (multiclass) case, the linear weights are applied in matrix form and each wine is calculated a probability it belongs to each class; the outcome class with the highest probability is chosen as the prediction.
 
-Before the next step, we must recognize our outcome quality classes are heavily imbalanced against lower and higher ratings. For the white wines, there are 7 quality classes, and, for the red wines, there are 6 quality classes to predict. In a first attempt to balance the classes, we will combine the `3` & `4` classes and the `8` & `9`. Though the latter combination has no effect for the red wines (no `9` ratings were given), we make the number of outcome classes 5 for both types of wine for pedagogy.   
+Before using the model, we must recognize our outcome quality classes are heavily imbalanced against lower and higher ratings. For the white wines, there are 7 quality classes, and, for the red wines, there are 6 quality classes to predict. In a first attempt to balance the classes, we will combine the `3` & `4` classes and the `8` & `9`. Though the latter combination has no effect for the red wines (no `9` ratings were given), we make the number of outcome classes 5 for both types of wine for pedagogy.   
 Following this binning, the number of ratings for each type is,  
 | Class | 3-4 | 5 | 6 | 7 | 8-9 |
 | ---- | :---: | :---: | :---: | :---: | :---: | 
 | White | 183 | 1,457 | 2,198 | 880 | 180 |
-| Red | 63 | 681 | 638 | 199 | 18 |  
-
-Logistic regression methods effectively use linear weights applied to features in a logistic (sigmoid) function to predict outcome probabilities. In the multinomial (multiclass) case, the linear weights are applied in matrix form and each wine is calculated a probability it belongs to each class; the outcome class with the highest probability is chosen as the prediction.  
+| Red | 63 | 681 | 638 | 199 | 18 |    
 
 Each dataset (red and white wine) is split into training and testing data at 70% and 30% of the data, respectively, via `scikit-learn`'s `train_test_split()` method. When applying the split, the data was stratified by outcome class, so that we didn't get all of the `3-4` outcome class in the testing data, for example. A random state seed was utilized for consistency.  
 
-We scale the data using `scikit-learn`'s `StandardScaler` class, which calculates the z-score for each observation column-wise (the mean of each feature becomes 0 and the standard deviation 1). The scaler was fit to the training data and applied to the training and testing data.  
+We scale the data using `scikit-learn`'s `StandardScaler` class, which calculates the z-score for each observation column-wise (the mean of each feature becomes 0 and the standard deviation 1, but outliers can prevent normality). The scaler was fit to the training data and applied to the training and testing data.  
 
 For the classification, `scikit-learn`'s `LogisticRegression` class was utilized. The models were instantiated with the parameter `multi_class=multinomial` to reflect the multiclass outcome and otherwise default parameters: namely, the solver method was `lbfgs` (the Broyden–Fletcher–Goldfarb–Shanno algorithm), the penalty schema was `l_2`, and the regularization strength, `C`, was 1.0. A random state seed was utilized as well for consistency. The models (recall, one for each dataset of wines) were fit and trained on the training data and predictions were made using the testing data.  
 
@@ -178,18 +178,19 @@ One potential remedy for that issue is to use various over- or under-sampling tr
 
 
 ### Model 3  
-Where linear and logistic regressions apply linear weights to features, Support Vector Machines (SVM) instead calculate hyperplanes in higher multi-dimensional space that separate outcome classes from one another. Despite sounding complicated, they are still simple to use and interpret, so we make our next models with SVMs.  
+Where linear and logistic regressions apply linear weights to features, Support Vector Machines (SVM) instead calculate hyperplanes in higher multi-dimensional space that separate outcome classes from one another. Despite sounding complicated, they are still simple to use and interpret, so we make our next models with SVMs. (Code is available in [final_multiclass_supervised_learning.ipynb](final_multiclass_supervised_learning.ipynb).)  
 
-#### Method 
-Foremost, we again look to the issue of the imbalanced quality classes. Again, we choose the route of binning the outer classes with the next-inner classes, giving us 3 outcome classes for this set of models. The `3`, `4`, and `5` classes are binned together into a `3-5` class, and the `7`, `8`, and `9` classes are binned together into a `7-9` class (`7-8` for red wines).  
+#### Method  
+
+Support Vector Classification (SVC) is a subset of SVMs designed to separate categorical outcomes with support vectors. The support vectors then feed into decision functions that predict outcome classes based on probabilities for each class, much like the logistic regression method. Prior to the probabilities step, and unlike the logistic regression, we will utilize a non-linear formulation (the kernel) for setting the support vectors. For our purposes, we will use an exponential formulation called the Radial Basis Function (RBF).  
+
+First, we again look to the issue of the imbalanced quality classes. Again, we choose the route of binning the outer classes with the next-inner classes, giving us 3 outcome classes for this set of models. The `3`, `4`, and `5` classes are binned together into a `3-5` class, and the `7`, `8`, and `9` classes are binned together into a `7-9` class (`7-8` for red wines).  
 
 With this binning, the number of ratings for each type is increasingly more balanced,  
 | Class | 3-5 | 6 | 7-9 |
 | ---- | :---: | :---: | :---: | 
 | White | 1,640 | 2,198 | 1,060 |
 | Red | 744 | 638 | 217 |  
-
-Support Vector Classification (SVC) is a subset of SVMs and, as noted, works in high-dimensional space to separate outcome classes with support vectors. The support vectors then feed into decision functions that predict outcome classes based on probabilities for each class, much like the logistic regression method. Prior to the probabilities step, and unlike the logistic regression, we will utilize a non-linear formulation (the kernel) for setting the support vectors. For our purposes, we will use an exponential formulation called the Radial Basis Function (RBF).  
 
 As before, each dataset is split into training and testing data at 70% and 30% of the data, respectively, with `train_test_split()`. When applying the split, the data was stratified by outcome class. A random state seed was utilized for consistency.  
 
@@ -211,10 +212,10 @@ Once again, though, we notice the imbalanced classes (i.e. `7-9` qualities) are 
 
 
 ### Model 4
-The SVC model showed promise in the previous step, so we continue to work with it.
+The SVC model showed promise in the previous step, so we continue to work with it. (Code is available in [whiteWineSVM.ipynb](whiteWineSVM.ipynb), [redWineSVM.ipynb](redWineSVM.ipynb), and [wineSVM.ipynb](wineSVM.ipynb).)  
 
 #### Method
-To address the shortcomings of the previous model, we again go the route of binnign our the quality outcomes. Binning from three classes takes us to a binary outcome, with classes `3-6` and `7-9`. We refer to the `3-6` class as `Average Quality` (since there were no 0-2 ratings in either dataset) and the `7-9` class as `Good Quality`.
+To address the shortcomings of the previous model, we again go the route of binning over the quality outcomes. Binning from three classes takes us to a binary outcome, with classes `3-6` and `7-9`. We refer to the `3-6` class as `Average Quality` (since there were no 0-2 ratings in either dataset) and the `7-9` class as `Good Quality`.
 
 With the binary outcome the number of ratings are,  
 | Class | 3-6 | 7-9 |
@@ -222,7 +223,7 @@ With the binary outcome the number of ratings are,
 | White | 3,838 | 1,060 |
 | Red | 1,382 | 217 |  
 
-Consistent with the previous SVC, data was split into 70% training and 30% training with `train_test_split()`.
+Consistent with the previous SVC, data was split into 70% training and 30% training with `train_test_split()` stratified by outcome class.
 
 A different scaling was utilized compared to the previous SVC. This time, `scikit-learn`'s `PowerTransform` class was used to perform a Yeo-Johnson transformation column-wise. Similar to a Box-Cox above, this algorithm utilizes a scaling factor in a power law to normalize data. The resulting mean and standard deviation are 0 and 1, respectively; compared to a `StandardScaler`, however, the `PowerTransform` is less-sensitive to outliers. The scaler was fit to the training data and applied to the training and testing sets.
 
@@ -233,10 +234,11 @@ The `SVC` instance was created similarly to before with default parameters. The 
 The binary SVC model performed exceedingly well. With no random state set, the model consistently scores above 98% on precision, recall, and balanced accuracy scores. Indeed, some model runs scored 100% on the above metrics.
 
 Such results for white wines are show in the following confusion matrix,  
-![White wines binary svc confusion matrix](static/wine/willputthisinsoon)  
+![White wines binary svc confusion matrix](static/wine/cm_whiteWines.png)  
 
 and those for red wines,  
-![Red wines binary svc confusion matrix](static/images/alsotobeputinsoon)  
+![Red wines binary svc confusion matrix](static/images/cm_redWines.png)  
+
 
 With scores topping at the best-possible 100%, there is little more to be done to optimize the model and we consider it a success.  
 
@@ -244,14 +246,14 @@ With scores topping at the best-possible 100%, there is little more to be done t
 
 Methods to rate subjective qualities of wine based on physical chemical compositions proved difficult, as shown from the process described herein. Moving to a binary result of `Average` and `Good` qualities is justified, however. The nuance between a wine rated a 5 and a wine rated a 6 is subtle and varies from taste-tester to taste-tester, which can even be influenced by slight congestion. Furthermore, the best-performing (non-binned) SVM models utilized by Cortez *et al.* reached maximum accuracy scores of ~65% and 62% for white and red wines, respectively. Indeed, Cortez *et al.* acknowledge that accuracy scores that include 'nearest neighbors' (i.e. a true-6 rated as a 5, 6, or 7 is "correct") reach 90%.
 
-The binary SVC model was able to predict rated qualities of wines based on the 11 available physico-chemical measurements with accuracies up to 100%. With such strong results, the project is a success.  
+The binary SVC model was able to predict general qualities of wines based on the 11 available physico-chemical measurements with accuracies up to 100%. With such strong results, the project is a success.  
 
 
 <br>
 
 ## Naive Physico-Chemical Clustering
 
-Quite readily, red and white wines are easily distinguishable from just the colors. As well, many people will be able to, at least vaguely, describe general differences in flavor profiles between red and white wines (e.g. red wines are drier, white wines are sweeter). Because flavor profiles are, most basically, a composition of chemicals, can a computer differentiate between red and white wines based on the 11 physico-chemical measurements in these datasets?  
+Quite readily, red and white wines are easily distinguishable from just the colors. As well, many people will be able to, at least vaguely, describe general differences in flavor profiles between red and white wines (e.g. red wines are drier, white wines are sweeter). Because flavor profiles are, most basically, a composition of chemicals, can a computer differentiate between red and white wines based on the 11 physico-chemical measurements in these datasets? (Code is available in [final_unsupervised_kmeans.ipynb](final_unsupervised_kmeans.ipynb).)  
 
 ### Method  
 
