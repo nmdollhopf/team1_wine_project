@@ -1,6 +1,8 @@
 # Vinho Verde Wine Classification  
 Final Project of Wine Classification for the Aug. '22 - Feb. '23 UNC Data Analytics Bootcamp by Darius Chancy, Niklaus Dollhopf, Ken Gaynor, Catherine Smith, & Browning Wipper.
 
+https://nmdollhopf.github.io/team1_wine_project/
+
 ## Introduction
 
 *Vinho Verde*  is a grouping of wines from the northern *Minho* region of Portugal. Though literally translated as "green wine," the name means "young wine" because the wines do not undergo a lengthy aging process, usually being released within six months. The wine grouping and region are legally defined and further enforced by the Comissão de Viticultura da Região dos Vinhos Verdes (CVRVV, *Vinho Verde Region Viticulture Commission*) via setting various standards each wine should meet. One set of standards includes the chemical composition of the wines designated as Vinho Verde, for which the CVRVV offers testing and accreditation. The CVRVV also orchestrates sensory (taste) tests for each wine.  
