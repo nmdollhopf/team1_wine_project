@@ -233,8 +233,8 @@ The `SVC` instance was created similarly to before with default parameters. The 
 
 The binary SVC model performed exceedingly well. With no random state set, the model consistently scores above 98% on precision, recall, and balanced accuracy scores. Indeed, some model runs scored 100% on the above metrics.
 
-Such results for white wines are show in the following confusion matrix,  
-![White wines binary svc confusion matrix](static/wine/cm_whiteWines.png)  
+Such results for white wines are shown in the following confusion matrix,  
+![White wines binary svc confusion matrix](static/images/cm_whiteWines.png)  
 
 and those for red wines,  
 ![Red wines binary svc confusion matrix](static/images/cm_redWines.png)  
@@ -261,7 +261,7 @@ The idea of naive clustering requires using only the physico-chemical measuremen
 
 The tool of choice is `scikit-learn`'s K-means algorithm (the `KMeans` class). With 11 physico-chemical columns, the K-means algorithm will work in 11-dimensional space and separate the two clusters based on 11th-dimension Euclidean distance. The algorithm is iterative until reaching a stopping point of, roughly, when the average distance from each point to the cluster centroid of each class are equal.  
 
-As noted above, there are no missing values in the data, so no observations were removed. The quality column was dropped. Each dataset was encoded by the type of wine (1 for red, 0 for white) before being combined into a single `pandas` DataFrame. The type was split off before using the K-means algorithm and was only kept as an answer key. The physico-chemical measurements were scaled using `scikit-learn`'s `StandardScaler` class, which calculates the z-score for each observation column-wise. The `KMeans` class was instantiated with default options, except for the number of clusters, which was set to 2 (since we want to attempt splitting into red and white wines). The K-means model was fit to the data and each observation was given a predicted class.  
+As noted above, there are no missing values in the data, so no observations were removed. The quality column was dropped. Each dataset was encoded by the type of wine (1 for red, 0 for white) before being combined into a single `pandas` `DataFrame`. The type was split off before using the K-means algorithm and was only kept as an answer key. The physico-chemical measurements were scaled using `scikit-learn`'s `StandardScaler` class, which calculates the z-score for each observation column-wise. The `KMeans` class was instantiated with default options, except for the number of clusters, which was set to 2 (since we want to attempt splitting into red and white wines). The K-means model was fit to the data and each observation was given a predicted class.  
 
 ### Result  
 
