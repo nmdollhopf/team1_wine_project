@@ -225,7 +225,7 @@ With the binary outcome the number of ratings are,
 
 Consistent with the previous SVC, data was split into 70% training and 30% training with `train_test_split()` stratified by outcome class.
 
-A different scaling was utilized compared to the previous SVC. This time, `scikit-learn`'s `PowerTransform` class was used to perform a Yeo-Johnson transformation column-wise. Similar to a Box-Cox above, this algorithm utilizes a scaling factor in a power law to normalize data. The resulting mean and standard deviation are 0 and 1, respectively; compared to a `StandardScaler`, however, the `PowerTransform` is less-sensitive to outliers. The scaler was fit to the training data and applied to the training and testing sets.
+A different scaling was utilized compared to the previous SVC. This time, `scikit-learn`'s `PowerTransformer` class was used to perform a Yeo-Johnson transformation column-wise. Similar to a Box-Cox above, this algorithm utilizes a scaling factor in a power law to normalize data. The resulting mean and standard deviation are 0 and 1, respectively; compared to a `StandardScaler`, however, the `PowerTransformer` is less-sensitive to outliers. The scaler was fit to the training data and applied to the training and testing sets.
 
 The `SVC` instance was created similarly to before with default parameters. The kernel was set to `rbf` (RBF above), the value of `gamma` (a scaler in the RBF) was set to scale, and the regularization strength, `C`, was 1.0. (The decision function is ignored in a binary case.) No random state seed was this time. The models were fit and trained on the training data and predictions were made using the testing data.
 
