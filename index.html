@@ -13,6 +13,7 @@
   />
   <link rel="stylesheet" href="static/css/style.css">    
 </head>
+
 <body class="bg-light">
     <div class="wrapper">
       <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
@@ -21,128 +22,214 @@
     </div>
     <div class="jumbotron">
         <h1 class="display-1">Predicting Wine Quality</h1>
-        <h4><a href=https://github.com/nmdollhopf/team1_wine_project>Project Github for Full Discussion</a></h4> 
+        <h4><a href=https://github.com/nmdollhopf/team1_wine_project style="color:black">Project Github for Full Discussion</a></h4> 
       </div>
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-            <h3>Wine physicochemical  properties Info</h3>
-          <p style="color:rgb(187, 19, 33);font-size:20px;">
+            <h3>Wine Physico-chemical Properties Info</h3>
+
+            <p style="color:rgb(187, 19, 33);font-size:17px;">
             Fixed Acidity-
             The measure of tartaric acid in the wines, measured in grams per Liter (g/L, reported at the CVRVV as grams per cubic decimeter). Tartaric acid contributes both to the chemical stability of the wine and flavor profile. For red and white wines, the CVRVV sets a minimum of 4.5 g/L.
-          </p>
+            </p>
 
-            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            <p style="color:rgb(187, 19, 33);font-size:17px;">
             Volatile Acidity-
             The measure of acetic acid in the wines, measured in g/L. Acetic acid is responsible for how much of a vinegar taste exists in the wine. The CVRVV sets a maximum of 1.20 g/L for red wines and 1.08 g/L for white wines.
-          </p>
+            </p>
 
-            <p style="color:rgb(187, 19, 33);font-size:20px;">  
+            <p style="color:rgb(187, 19, 33);font-size:17px;">  
             Citric Acid-
             The measure of citric acid in the wines, measured in g/L. While not naturally occuring in grapes in large amounts, citric acid is the familiar taste of citrus fruits (e.g. oranges) and allowed as an additive for removal of iron and copper. A maximum of 1.00 g/L for both red and white wines is set by the CVRVV.
-          </p>
-            <p style="color:rgb(187, 19, 33);font-size:20px;"> 
+            </p>
+            <p style="color:rgb(187, 19, 33);font-size:17px;"> 
             Residual Sugar-
             A measure of the amount of sugar left over after the fermentation process, measured in g/L. Typically a mix primarily of glucose and fructose, but the specific lab test conducted by the CVRVV lab is unknown. There are no minimum or maximuml limits set by the CVRVV.
-          </p> 
+            </p> 
 
-            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            <p style="color:rgb(187, 19, 33);font-size:17px;">
             Chlorides-
             The measure of sodium chloride, salt, in the wine, measured in g/L. The maximum limits set by the CVRVV are 1 g/L for both red and white wines.
-          </p>
+            </p>
 
-            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            <p style="color:rgb(187, 19, 33);font-size:17px;">
             Free and Total Sulfur Dioxide-
             Measures of the amount of sulfur dioxide in the wine, measured in milligrams per Liter (mg/L, 1000 mg/L is 1 g/L). Used as a chemical stabilizer, free sulfur dioxide refers to sulfur dioxide existing in its sole molecular form whereas total sulfur dioxide further includes sulfur dioxide that has been chemically bound to other molecules. The maximimum limits set by the CVRVV vary depending on the amount of sugar in the wine.
-          </p>
+            </p>
 
-            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            <p style="color:rgb(187, 19, 33);font-size:17px;">
             Density-
             The density of the wine, measured in grams per milliliter (g/mL). Plain water has a density of about 1 g/mL, and alcohol (ethanol) has a density just under 0.8 g/mL.
-          </p>
+            </p>
 
-            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            <p style="color:rgb(187, 19, 33);font-size:17px;">
             pH-
             The pH of the wine, measured on the unitless pH scale. Nominally ranging from 0-14, a neutral pH is about 7, such as water, and acidic solutions are less than 7.
-          </p> 
+           </p> 
 
-            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            <p style="color:rgb(187, 19, 33);font-size:17px;">
             Sulphates-
             A measure of potassium sulphates in the wine (potentially potassium metabisulphite) in g/L. Primarily used as chemical stabilizers, the CVRVV sets upper limits of 2 g/L for red and white wines.
-          </p> 
+           </p> 
 
-            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            <p style="color:rgb(187, 19, 33);font-size:17px;">
             Alcohol-
             The measure of alcohol in the wine, expressed as a percentage of volume. For red and white wines, the CVRVV sets a minimum total alcohol of 8% and maximum total alcohol of 14%.
-          </p>
+            </p>
 
-            <p style="color:rgb(187, 19, 33);font-size:20px;">
+            <p style="color:rgb(187, 19, 33);font-size:17px;">
             Quality-
             Blind taste tests were performed by professional wine makers and tasters. The rating was a scale from 0-10, with 0 being "very bad" and 10 being "excellent". Each wine was taste-tested by at least 3 people and the median of the scores was taken as the quality.
-          </p> 
+            </p> 
             
           </div>
 
           <div class="col-md-4">
-            
-            <p style="color:blue;font-size:24px;">
-            Distributions of physicochemical  properties of the Red variants of the Portuguese "Vinho Verde" wine
-              <img src="static/images/Red_wine_dist.jpg" alt="Italian Trulli" width="80%" height="auto"/>
+            <h3>Distributions of physico-chemical properties of the Portuguese "Vinho Verde" wines</h3>
+
+            <p style="color:blue;font-size:20px;">
+            Red variants
+            <img src="static/images/Red_wine_dist.jpg" alt="red wine distributions" width="80%" height="auto"/>
             </p>
+            <p style="color:blue;font-size:20px;">
+            White variants 
+            <img src="static/images/White_wine_dist.jpg" alt="white wine distributions" width="80%" height="auto"/>
+            </p>
+
+            <p>
+            <h3>Can we predict rated qualities based on physico-chemical measurements?</h3>
+            <h5>Supervised Learning models</h5>
+            </p>
+
             <p style="color:blue;font-size:24px;">
-            Distributions of physicochemical properties of the White variants of the Portuguese "Vinho Verde" wine 
-            <img src="static/images/White_wine_dist.jpg" alt="Italian Trulli" width="80%" height="auto"/>
-          </p>
+            Logistic Regression model
+            </p>
+            <p>
+              We used scikit-learn's LogisticRegression with the mulitnomial keyword, linear lbfgs solver, and other default parameters, on data scaled with 
+              scikit-learn's StandardScaler. We binned the qualities by combining the 3 & 4 classes and 8 & 9 qualities (for white wines). The results are shown below.
+            </p>
+            <div style="display: flex;">
+              <img src="static/images/logit_reds_confusion_matrix.png" alt="Red Wine Confusion Matrix" width="70%" height="auto"/>
+              <img src="static/images/logit_whites_confusion_matrix.png" alt="White Wine Confusion Matrix" width="70%" height="auto"/>
+            </div>
+            <p>
+              The raw accuracies are 57.1% and 53.8% for red and white wines, respectively.
+              The logistic regression was good at predicting the more-populated (i.e. center) qualities. It didn't do well at predicting the 
+              3-4 and 8-9 classes, so we'll have to try something else.
+            </p>
 
-               
-          <div style="display: flex;">
-            <img src="static/images/logit_reds_confusion_matrix.png" alt="Red Wine Confusion Matrix" width="70%" height="auto"/>
-            <img src="static/images/logit_whites_confusion_matrix.png" alt="White Wine Confusion Matrix" width="70%" height="auto"/>
-          </div>a
-
-          <div style="display: flex;">
-            <img src="static/images/svm_reds_confusion_matrix.png" alt="Red Wine Confusion Matrix" width="70%" height="auto"/>
-            <img src="static/images/svm_whites_confusion_matrix.png" alt="White Wine Confusion Matrix" width="70%" height="auto"/>
-          </div>
-          <p style="color:blue;font-size:24px;">
-          Optimized SVC
-        </p>
-          <div style="display: flex;">
-            
-            
-            <img src="static/images/cm_redWines.png" alt="Red Wine Confusion Matrix" width="80%" height="auto"/>
-            <img src="static/images/cm_whiteWines.png" alt="White Wine Confusion Matrix" width="80%" height="auto"/>
-          </div>
-
-          <div style="display: flex;">
-            <img src="static/images/cm_AllWines.png" alt="Red Wine Confusion Matrix" width="80%" height="auto"/>
-          </div>
-          <div class="container-fluid">
             <p style="color:blue;font-size:24px;">
-            SVC Scatter plot</p>
-            <iframe src="SVC-scatter.html" width="800" height="350" frameborder="1"></iframe>
+            First SVC model
+            </p>
+            <p>
+              The use of a linear model was called into question. So, we used scikit-learn's SVC (support vector classification) with the default exponential RBF solver
+              and other default parameters on data scaled with scikit-learn's StandardScaler.
+              We binned the qualities by combining the 3, & 4, & 5 classes and 7, & 8, & 9 qualities. The results are shown below.
+            </p>
+            <div style="display: flex;">
+              <img src="static/images/svm_reds_confusion_matrix.png" alt="Red Wine Confusion Matrix" width="70%" height="auto"/>
+              <img src="static/images/svm_whites_confusion_matrix.png" alt="White Wine Confusion Matrix" width="70%" height="auto"/>
+            </div>
+            <p>
+              The raw accuracies are 60.2% and 63.2% for red and white wines, respectively. 
+              The first SVC was also good at predicting the more-populated qualities and did better overall than the logistic regression. It didn't do well at predicting the 
+              less-populated class, the 7-9 class, so we try pushing on.
+            </p>
+          
+          
+            <p style="color:blue;font-size:24px;">
+            Optimized SVC
+            </p>
+            <p>
+              We continued with scikit-learn's SVC with the default exponential RBF solver
+              and other default parameters. This time, the data was scaled with scikit-learn's PowerTransform using the Yeo-Johnson method.
+              We binned the qualities to a binary outcome. Average Quality wines were the 3-6 classes and High Quality wines
+              were the 7-9 classes. The results are shown below.
+            </p>
+            <div style="display: flex;">
+              <img src="static/images/cm_redWines.png" alt="Red Wine Confusion Matrix" width="80%" height="auto"/>
+              <img src="static/images/cm_whiteWines.png" alt="White Wine Confusion Matrix" width="80%" height="auto"/>
+            </div>
+            <p>
+              The binary SVC did very well! It correctly classified each wine as either Average or High Quality (100% accuracy).
+            </p>
 
-           </div>
-           
+            <p>
+              The binary SVC even works accurately when we combine the red and white wines into a single dataset.
+            </p>
+            <div style="display: flex;">
+              <img src="static/images/cm_AllWines.png" alt="Combined Wine Confusion Matrix" width="80%" height="auto"/>
+            </div>
+
+            <div class="container-fluid">
+              <p style="color:blue;font-size:24px;">
+              SVC Scatter plot</p>
+              <p>
+                We can visualize the last binary SVC on the combined data using a scatter plot following a Principal Component Analysis. The explained variance ratio using two componets is around 50%.
+              </p>
+              <iframe src="SVC-scatter.html" width="800" height="350" frameborder="1"></iframe>
+
+            </div>
             
-          <p style="color:blue;font-size:24px;">
-            Scatter plot #1
-             <img src="static/images/kmeans_scatter_1.png" alt="Italian Trulli" width="90%" height="auto"/>
-           </p>
-           <p style="color:blue;font-size:24px;">
-            Scatter plot #2
-             <img src="static/images/kmeans_scatter_2.png" alt="Italian Trulli" width="90%" height="auto"/>
-           </p>
-           <p style="color:blue;font-size:24px;">
-            Scatter plot #3
-             <img src="static/images/kmeans_scatter_3.png" alt="Italian Trulli" width="90%" height="auto"/>
-           </p>
-           <p style="color:blue;font-size:24px;">
-            Unsupervised Kmeans confusion matrix
-             <img src="static/images/kmeans_confusion_matrix.png" alt="Italian Trulli" width="70%" height="auto"/>
-           </p>
+            <p>
+            <h3>Can a naive KMeans clustering separate red and white wines based on physico-chemical measurements?</h3>
+            <h5>Unsupervised Learning model</h5>
+              Using StandardScaler-scaled data and only the 11 physico-chemical measurements (no quality column), we instantiate a 
+              scikit-learn KMeans algorithm to try differentiating between the red and white wines.
+            </p>
+            <p>
+              In the below scatter plots, we show various features on either axis to try visualizing the results, since we can't plot in 11 dimensions;
+              we tried to choose features that show differentiation in the histograms above.
+              All white wines are plotted in orange and the red wines are plotted in purple. Wines predicted to be red (given prediction class 1) are
+              show as circles and wines predicted to be white (given prediction class 0) are shown as diamonds. Therefore, false reds, white wines
+              that were predicted to be red, are orange circles and false whites, red wines predicted to be white, are purple diamonds.
+              The falsely-predicted wines are further outlined in black.
+            </p>
+              <p style="color:blue;font-size:18px;">
+              Scatter plot #1
+              <img src="static/images/kmeans_scatter_1.png" alt="scatter plot 1" width="130%" height="auto"/>
+            </p>
+            <p style="color:blue;font-size:18px;">
+              Scatter plot #2
+              <img src="static/images/kmeans_scatter_2.png" alt="scatter plot 2" width="130%" height="auto"/>
+            </p>
+            <p style="color:blue;font-size:18px;">
+              Scatter plot #3
+              <img src="static/images/kmeans_scatter_3.png" alt="scatter plot 3" width="130%" height="auto"/>
+            </p>
+            <p style="color:blue;font-size:18px;">
+              Confusion matrix Results
+              <img src="static/images/kmeans_confusion_matrix.png" alt="confusion matrix" width="90%" height="auto"/>
+            </p>
+            <p>
+              As we can see, the red and white wines are separable to a balanced accuracy of 98.55%. Technically, the model doesn't predict which
+              wines are white or red, it just grouped similar wines together. We have to assume the model will be correct in order to say
+              how correct it is.
+            </p>
 
-           
+            <p>
+            <h4>Citations</h4>
+              <i>With some information available only in Portuguese, Google Translate was used and some mistranlations may have occurred</i>
+              <ul>
+              <li>Primary paper: P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis. Modeling wine preferences by data mining from physicochemical properties. In Decision Support Systems, Elsevier, 47(4):547-553, 2009.  (Paper and data also available at <a href=http://www3.dsi.uminho.pt/pcortez/wine/>http://www3.dsi.uminho.pt/pcortez/wine/</a>)  </li>
+              <li> <a href=https://portal.vinhoverde.pt/pt/quem-somos>About CVRVV:</a>  </li>
+              <li> <a href=https://portal.vinhoverde.pt/pt/analise-fisicoquimica-e-sensorial-processoCertificacao>CVRVV Testing Lab:</a>  </li>
+              <li> <a href=https://portal.vinhoverde.pt/pt/produtos-regras-de-conformidade/VVT>CVRVV red wine requirements:</a>  </li>
+              <li> <a href=https://portal.vinhoverde.pt/pt/produtos-regras-de-conformidade/VVB>CVRVV white wine requirements:</a>  </li>
+              <li> <a href=https://en.wikipedia.org/wiki/Vinho_Verde>Overview of vinho verde wines:</a>  </li>
+              <li> <a href=https://en.wikipedia.org/wiki/Acids_in_wine>Various acids in wine:</a>  </li>
+              <li> <a href=https://scikit-learn.org/>Scikit-learn:</a>  </li>
+              <li> <a href=https://pandas.pydata.org/>Pandas:</a>  </li>
+              <li><a href=https://numpy.org/>Numpy:</a>  </li>
+              <li> <a href=https://matplotlib.org/>Matplotlib:</a>  </li>
+              <li> <a href=https://seaborn.pydata.org/>Seaborn:</a>  </li>
+              <li> <a href=https://getbootstrap.com/>Bootstrap:</a>  </li>
+              <li> <a href=https://www.R-project.org/>R:</a>  </li>
+              <li> <a href=https://www.tidyverse.org/>Tidyverse:</a> </li>
+              </ul>
+            </p>
+
           </div>
                
                 
