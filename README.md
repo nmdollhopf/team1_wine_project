@@ -2,6 +2,7 @@
 Final Project of Wine Classification for the Aug. '22 - Feb. '23 UNC Data Analytics Bootcamp by Darius Chancy, Niklaus Dollhopf, Ken Gaynor, Catherine Smith, & Browning Wipper.
 
 Snippets of this work available as a [Github Pages](https://nmdollhopf.github.io/team1_wine_project/).  
+The presentation for this project can be found [as a Google Slides presentation](https://docs.google.com/presentation/d/10XE0QqeBl451JG0aBWGB4G1ebL_Ei87NbKHHfrEbIFg/edit?usp=sharing).  
 
 ## Introduction
 
